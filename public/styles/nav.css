@@ -1,0 +1,33 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #FFFFFF;
+    background-color: #4056a1;
+    height: 120px;
+    padding: 1.5em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 500;
+  }
+  
+  #headerlogo {
+    font-size: 36px;
+    font-family: 'Bungee', sans-serif;
+  }
+  
+  #writetweet {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #mark {
+    display: flex;
+    justify-content: center;
+    color: red;
+  }
+  
+  
