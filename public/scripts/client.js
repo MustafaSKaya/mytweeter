@@ -4,10 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
-
-
-
 $(document).ready(function() {
 
     const createTweetElement = (obj) => {
@@ -39,31 +35,14 @@ $(document).ready(function() {
         return newTweet;
     };
 
-    function renderTweets(data) {
+    const renderTweets = function (data) {
 
         data.forEach((obj) => {
 
-            $(createTweetElement(obj)).appendTo("#mainbody");
+            $(createTweetElement(obj)).prependTo("#mainbody");
 
         });
     };
-
-    $("#tweetform").submit(function(event) {
-
-        console.log( $( this ).serialize());
-
-        event.preventDefault();
-
-        $.ajax({
-            url: 'http://localhost:3000/tweets',
-            method: 'POST',
-            data: $(this).serialize()
-        })
-        .then(function() {
-            console.log();
-            
-        })
-    });
 
     const loadTweets = function() {
         $.ajax({
@@ -71,10 +50,38 @@ $(document).ready(function() {
             method: 'GET'
         })
         .then(function(data) {
-            renderTweets(data);    
+            renderTweets(data);
         }); 
     };
 
     loadTweets()
+
+    $("#tweetform").submit(function(event) {
+
+        event.preventDefault();
+        const newTweet = $('textarea').serialize();
+        const newTweetLength = $('textarea').serialize().length - 5;
+        const tweetLimit = 140;
+
+        if (newTweetLength > tweetLimit) {
+            alert('your tweet exceeds our character limit');
+            return
+        } else if (newTweetLength <= 0) {
+            alert('you cant send an empty tweet');
+            return
+        }
+
+        $.ajax({
+            url: 'http://localhost:3000/tweets',
+            method: 'POST',
+            data: newTweet
+        })
+        .then(function() {
+            $("#mainbody").empty();
+            loadTweets(newTweet);
+        })
+    });
       
 });
+
+
