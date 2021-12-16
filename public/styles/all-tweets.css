@@ -1,5 +1,4 @@
-.tweets {
-    width: 40%;
+.tweet {
     border: solid;
     border-color: black;
     background-color: papayawhip;
@@ -7,36 +6,36 @@
     margin: 5px;
 }
   
-    article.tweet header {
+    .tweet header {
         display: flex;
         flex-direction: row;
     }
     
-    article.tweet header img {
+    .tweet header img {
         height: 50px;
         padding-right: 20px;
     }
     
-    article.tweet header span.handle  {
+    .tweet header span.handle  {
         margin-left: auto;
         color: gray;
     }
 
-    article.tweet header h4  {
+    .tweet header h4  {
         color: grey;
     }
     
-    article.tweet div.inner-tweets {
+    .tweet div.inner-tweets {
         font-size: 24px;
         border: black;
         border-bottom-style: solid;
     }
     
-    .tweets h4 {
+    .tweet h4 {
         margin: 0px;
     }
     
-    .tweet-footer {
+    .tweet footer {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -47,15 +46,15 @@
         padding-right: 5px;
     }
 
-    .tweet-footer span i {
+    .tweet footer span i {
         color: darkblue;
     }
     
-    section.tweets:hover {
+    .tweet:hover {
         box-shadow: 5px 5px 0px grey;
     }
 
-    .tweets footer span i:hover {
+    .tweet footer span i:hover {
         opacity: 90%;
         color: goldenrod;
     }

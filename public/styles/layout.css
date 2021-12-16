@@ -16,7 +16,7 @@ html {
 
 body {
   color: #545149;
-  background-color: #f4f1ec;
+  background-color: papayawhip;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -32,4 +32,12 @@ main {
   align-items: center;
   position: relative;
   margin: auto;
+}
+
+.errorcontainer {
+  padding: 20px;
+  width: 60%;
+  font-size: 28px;
+  color: red;
+  border: 8px solid red;
 }

@@ -6,12 +6,20 @@
 
 $(document).ready(function() {
 
+    const escape = function (str) {
+        let div = document.createElement("div");
+        div.appendChild(document.createTextNode(str));
+        return div.innerHTML;
+    };
+
     const createTweetElement = (obj) => {
 
         const time = timeago.format(obj.created_at);
 
+        const safeHTML = `<p>${escape(obj.content.text)}</p>`;
+
         const newTweet = `
-            <section class="tweets">
+            
               <article class="tweet">
                 <header>
                   <img src=${obj.user.avatars}>
@@ -19,7 +27,7 @@ $(document).ready(function() {
                   <span class="handle">${obj.user.handle}</span>
                 </header>
                 <div class="inner-tweets">
-                  <p>${obj.content.text}</p>
+                  ${safeHTML}
                 </div>
                 <footer class="tweet-footer">
                 ${time}
@@ -29,11 +37,13 @@ $(document).ready(function() {
                   <i class="fas fa-heart"></i>
                 </span>
                 </footer>
-              </article>
-            </section>`
+              </article>`
 
         return newTweet;
     };
+
+    const $errorMessage = $('#error-message');
+    $errorMessage.hide();
 
     const renderTweets = function (data) {
 
@@ -64,10 +74,14 @@ $(document).ready(function() {
         const tweetLimit = 140;
 
         if (newTweetLength > tweetLimit) {
-            alert('your tweet exceeds our character limit');
+            $('.error').text('Too long. Plz respect our arbitrary character limit of 140!');
+            $errorMessage.slideDown(500);
+            setTimeout(() => { $errorMessage.slideUp(500) }, 7000);
             return
         } else if (newTweetLength <= 0) {
-            alert('you cant send an empty tweet');
+            $('.error').text('You can not send an empty tweet!');
+            $errorMessage.slideDown(500);
+            setTimeout(() => { $errorMessage.slideUp(500) }, 7000);
             return
         }
 
