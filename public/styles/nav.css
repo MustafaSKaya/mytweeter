@@ -4,7 +4,6 @@ nav {
     justify-content: space-between;
     font-family: 'Source Sans Pro', sans-serif;
     color: #FFFFFF;
-    background-color: #4056a1;
     height: 120px;
     padding: 1.5em;
     position: fixed;
@@ -25,6 +24,8 @@ nav {
   }
   
   #mark {
+    background-color: transparent;
+    border-style: none;
     display: flex;
     justify-content: center;
     color: red;

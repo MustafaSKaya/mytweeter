@@ -2,8 +2,10 @@
     border: solid;
     border-color: black;
     background-color: papayawhip;
-    padding: 1.5em;
-    margin: 5px;
+    margin: 25px;
+    padding: 25px;
+    word-break: break-all;
+    max-width: 100%;
 }
   
     .tweet header {

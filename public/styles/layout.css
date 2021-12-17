@@ -28,16 +28,81 @@ body {
 main {
   width: 90%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   position: relative;
   margin: auto;
 }
 
 .errorcontainer {
+  margin-top: 100px;
   padding: 20px;
-  width: 60%;
+  width: 90%;
   font-size: 28px;
   color: red;
   border: 8px solid red;
+}
+
+#right-column {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding: auto;
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  #right-column {
+    padding: 20px;
+    width: 100%;
+  }
+
+  .new-tweet {
+    padding-top: 30px;
+    margin-top: 30px;
+  }
+
+  #pageheader {
+    margin-top: 120px;
+    width: 100%;
+  }
+
+  main {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .headercontent {
+    width: 100%;
+
+  }
+
+  nav {
+    background-color: orange;
+    background-image: url("../images/asfalt-light.png");
+  }
+}
+
+@media (min-width: 768px) {
+  nav {
+    background-color: #4056a1;
+  }
+
+  .errorcontainer {
+    margin-top: 180px ;
+  }
+
+  .new-tweet {
+    margin-top: 180px;
+  }
+
+  .headercontent {
+    width: 75%;
+  }
+
+  #pageheader {
+    margin-top: 180px;
+    width: 45%;
+  }
 }
